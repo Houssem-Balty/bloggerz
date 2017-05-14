@@ -43,13 +43,8 @@ class Facebook
     protected $accessToken;
 
 
-    /**
-    * Many Features have One Product.
-    * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="facebookAccounts")
-    * @ORM\JoinColumn(name="user_owner_id", referencedColumnName="id")
-    */
 
-    private $user_owner ;
+
 
 
     /**
@@ -86,32 +81,6 @@ class Facebook
         return $this->permissions;
     }
 
-
-
-    /**
-     * Set user_owner
-     *
-     * @param object $user_owner
-     *
-     * @return Facebook
-     */
-    public function setUserOwner($owner)
-    {
-        $this->user_owner = $owner;
-
-        return $this;
-    }
-
-
-    /**
-     * Get user_owner
-     *
-     * @return string
-     */
-    public function getUserOwner()
-    {
-        return $this->user_owner;
-    }
 
 
 

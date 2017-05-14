@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace FacebookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Page
  *
  * @ORM\Table(name="page")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageRepository")
+ * @ORM\Entity(repositoryClass="FacebookBundle\Repository\PageRepository")
  */
 class Page
 {
@@ -187,4 +187,3 @@ class Page
         return $this->picture;
     }
 }
-

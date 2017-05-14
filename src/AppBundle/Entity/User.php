@@ -15,9 +15,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 class User extends BaseUser
 {
 
+
   public function __construct() {
-     $this->facebookAccounts = new ArrayCollection();
- }
+     $this->blogs = new ArrayCollection();
+   }
 
 
     /**
@@ -44,11 +45,20 @@ class User extends BaseUser
     protected $lastName;
 
     /**
-     * One User has Many Facebook Accounts.
-     * @ORM\OneToMany(targetEntity="FacebookBundle\Entity\Facebook", mappedBy="user_owner")
+     * One User has One Account.
+     * @ORM\OneToOne(targetEntity="FacebookBundle\Entity\Facebook")
+     * @ORM\JoinColumn(name="accountId", referencedColumnName="accountId")
      */
 
     private $facebookAccounts;
+
+
+    /**
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="Blog", mappedBy="owner")
+     */
+
+    private $blogs ;
 
 
     /**

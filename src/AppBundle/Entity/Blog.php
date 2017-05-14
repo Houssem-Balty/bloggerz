@@ -35,18 +35,20 @@ class Blog
      */
     private $link;
 
-    /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="category", type="object")
-     */
+
+
+    
+
     private $category;
 
+
+
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="owner", type="object")
-     */
+    * Many Blogs have One owner.
+    * @ORM\ManyToOne(targetEntity="User", inversedBy="blogs")
+    * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+    */
+
     private $owner;
 
     /**
@@ -57,10 +59,11 @@ class Blog
     private $description;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="facebookPage", type="object", nullable=true)
+     * One Blog has One Page.
+     * @ORM\OneToOne(targetEntity="FacebookBundle\Entity\Page")
+     * @ORM\JoinColumn(name="page_id", referencedColumnName="pageId")
      */
+
     private $facebookPage;
 
 
@@ -218,4 +221,3 @@ class Blog
         return $this->facebookPage;
     }
 }
-
