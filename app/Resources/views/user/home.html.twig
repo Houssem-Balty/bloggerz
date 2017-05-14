@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+
+
+{% block body %}
+<table>
+<tr>
+<td> # </td>
+<td> Account Name </td>
+<td> Account Link </td>
+<td> picture </td>
+<td> action </td>
+</tr>
+{% for account in data %}
+<tr>
+<td> {{ account[0].id }} </td>
+<td> {{ account[0].accountName }} </td>
+<td> <a href="https://facebook.com/"</td>
+<td> <img src="{{ account[0].picture }}" </td>
+<td> <a  href="{{path('manage_permissions',{'id' : account[0].accountId })}}"> Détails </a> </td>
+</tr>
+
+
+{% endfor %}
+
+
+
+{% endblock %}
+
+
+
+{% block stylesheets %}
+
+{% endblock %}
