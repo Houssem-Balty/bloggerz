@@ -15,7 +15,7 @@ class BlogController extends Controller
   /**
    * @Route("/blog/list", name="add_list")
    */
-  public function addAction(Request $request)
+  public function listAction(Request $request)
   {
     $blogs = $this->getDoctrine()
     ->getRepository('AppBundle:Blog')
