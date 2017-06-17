@@ -37,8 +37,12 @@ class Blog
 
 
 
-    
 
+    /**
+   * Many Users have One Address.
+   * @ORM\ManyToOne(targetEntity="Category")
+   * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+   */
     private $category;
 
 
@@ -58,12 +62,13 @@ class Blog
      */
     private $description;
 
-    /**
-     * One Blog has One Page.
-     * @ORM\OneToOne(targetEntity="FacebookBundle\Entity\Page")
-     * @ORM\JoinColumn(name="page_id", referencedColumnName="pageId")
-     */
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebookPage", type="string", length=400, nullable=true)
+     */
     private $facebookPage;
 
 

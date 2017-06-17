@@ -62,6 +62,13 @@ class User extends BaseUser
 
 
     /**
+     * One User has Many Review Requests.
+     * @ORM\OneToMany(targetEntity="ReviewRequest", mappedBy="userRecieve")
+     */
+    private $reviewRequests;
+
+
+    /**
      * Get id
      *
      * @return int

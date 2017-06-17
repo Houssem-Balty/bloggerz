@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
+
+
+  public function __construct(){
+
+  }
     /**
      * @var int
      *
@@ -35,12 +40,7 @@ class Category
      */
     private $description;
 
-    /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="blogs", type="object")
-     */
-    private $blogs;
+
 
     /**
      * @var string
@@ -108,29 +108,8 @@ class Category
         return $this->description;
     }
 
-    /**
-     * Set blogs
-     *
-     * @param \stdClass $blogs
-     *
-     * @return Category
-     */
-    public function setBlogs($blogs)
-    {
-        $this->blogs = $blogs;
 
-        return $this;
-    }
 
-    /**
-     * Get blogs
-     *
-     * @return \stdClass
-     */
-    public function getBlogs()
-    {
-        return $this->blogs;
-    }
 
     /**
      * Set picture
@@ -156,4 +135,3 @@ class Category
         return $this->picture;
     }
 }
-

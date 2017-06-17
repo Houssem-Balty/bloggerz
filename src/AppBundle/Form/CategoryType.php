@@ -15,7 +15,9 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Doctrine\ORM\EntityRepository;
-class BlogType extends AbstractType
+
+
+class CategoryType extends AbstractType
 {
     /**
     * @param FormBuilderInterface $builder
@@ -25,27 +27,16 @@ class BlogType extends AbstractType
     {
         $builder
         ->add('name',TextType::class)
-        ->add('link',TextType::class)
-        ->add('description',TextType::class)
-        ->add('category',EntityType::class,array(
-          'class' => 'AppBundle:Category',
-          'multiple' => false,
-          'expanded' => false,
-          'required' => true,
-          'query_builder' => function(EntityRepository $er){
-            return $er->createQueryBuilder('u');
-            },
-            'choice_label' => 'name',
+        ->add('description',TextareaType::class)
+        ->add('picture',TextType::class);
 
-        ))
-        ->add('facebookPage',TextType::class);
     }
     /**
     * @param OptionsResolverInterface $resolver
     */
     public function setDefaultOptions(OptionsResolverInterface $resolver){
       $resolver->setDefaults(array(
-        'data_class' => 'AppBundle\Entity\Blog',
+        'data_class' => 'AppBundle\Entity\Category',
       ));
     }
 }

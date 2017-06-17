@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class JobOffer
 {
+
+
+    public function __construct(){
+      $publishDate = new \DateTime();
+
+    }
+
     /**
      * @var int
      *
@@ -38,9 +45,9 @@ class JobOffer
     /**
      * @var string
      *
-     * @ORM\Column(name="location", type="string", length=255)
+     * @ORM\Column(name="language", type="string", length=255)
      */
-    private $location;
+    private $language;
 
     /**
      * @var string
@@ -50,11 +57,20 @@ class JobOffer
     private $status;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="blog", type="object")
-     */
+   * Many Jobiffers have One Blog.
+   * @ORM\ManyToOne(targetEntity="Blog")
+   * @ORM\JoinColumn(name="blog_id", referencedColumnName="id")
+   */
     private $blog;
+
+
+
+    /**
+     * One Joboffre has One User.
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * @var \DateTime
@@ -137,27 +153,27 @@ class JobOffer
     }
 
     /**
-     * Set location
+     * Set language
      *
-     * @param string $location
+     * @param string $language
      *
      * @return JobOffer
      */
-    public function setLocation($location)
+    public function setLanguage($language)
     {
-        $this->location = $location;
+        $this->language = $language;
 
         return $this;
     }
 
     /**
-     * Get location
+     * Get language
      *
      * @return string
      */
-    public function getLocation()
+    public function getLanguage()
     {
-        return $this->location;
+        return $this->language;
     }
 
     /**
@@ -280,4 +296,3 @@ class JobOffer
         return $this->wage;
     }
 }
-
